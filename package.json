@@ -4,8 +4,8 @@
   "description": "<img src=\"assets/images/readme-images/cover.png\">",
   "main": "index.js",
   "scripts": {
-    "dev": "vite src",
-    "build": "vite build src",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "repository": {

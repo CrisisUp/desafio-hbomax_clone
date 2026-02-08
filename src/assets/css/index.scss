@@ -31,14 +31,16 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
-    
+
     img {
       @include image-grayscale-hover;
       max-height: 40px;
       opacity: 0.8;
       transition: opacity 0.3s;
 
-      &:hover { opacity: 1; }
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -61,30 +63,30 @@
   }
 
   &__card {
-    @include plan-card; 
-    
+    @include plan-card;
+
     .subscription__goals {
       list-style: none;
       text-align: left;
       margin: 2rem 0;
       display: flex;
       flex-direction: column;
-      gap: 1rem; 
+      gap: 1rem;
 
       li {
         display: flex;
-        align-items: flex-start; 
-        gap: 12px; 
+        align-items: flex-start;
+        gap: 12px;
         font-size: 0.95rem;
         color: rgba(255, 255, 255, 0.8);
-        border: none; 
+        border: none;
         padding: 0;
 
         &::before {
           content: "✔";
           color: $secondary-color;
           font-weight: bold;
-          min-width: 1.2rem; 
+          min-width: 1.2rem;
           text-shadow: 0 0 8px rgba($secondary-color, 0.4);
         }
       }
@@ -105,7 +107,9 @@
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
 
     &:hover {
       transform: scale(1.05);
@@ -113,7 +117,7 @@
     }
 
     img {
-      @include image-grayscale-hover; 
+      @include image-grayscale-hover;
       width: 100%;
       display: block;
     }
@@ -122,7 +126,55 @@
 
 // 4. Animação de Fundo (Modernização 2026)
 @keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.brand-card {
+  width: 150px;
+  height: 100px;
+  background-image: url("../images/WB-Default.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    background-image: url("../images/WB-Hover.webp");
+    transform: scale(1.1); // Dá um leve zoom
+    cursor: pointer;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  // Caminho atual para a imagem do Sheldon que aparece na sua tela
+  background-image: url("./assets/images/background-movies-series.png");
+
+  // A MÁGICA PARA NÃO QUEBRAR:
+  background-size: cover; // Faz a imagem cobrir toda a área sem distorcer
+  background-position: center; // Centraliza a imagem
+  background-repeat: no-repeat; // Impede a repetição lateral
+  background-attachment: fixed; // Mantém o fundo parado ao rolar
+  background-position: center top;
+
+  transition: background-image 1.5s ease-in-out;
+  animation: fadeInPage 2s ease-in;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

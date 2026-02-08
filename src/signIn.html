@@ -25,10 +25,39 @@
 
         <form class="login-form">
           <div class="form-group">
-            <input type="email" id="email" placeholder="E-mail" required />
+            <input
+              type="email"
+              id="email"
+              placeholder="E-mail"
+              required
+              autocomplete="username"
+            />
+            <p id="email-mask" class="strength-text" style="opacity: 0.7"></p>
           </div>
           <div class="form-group">
-            <input type="password" id="password" placeholder="Senha" required />
+            <input
+              type="password"
+              id="password"
+              placeholder="Senha"
+              required
+              minlength="8"
+              maxlength="32"
+              autocomplete="current-password"
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              placeholder="Senha"
+              required
+              autocomplete="current-password"
+            />
+            <div class="password-strength">
+              <div id="strength-bar" class="strength-bar"></div>
+            </div>
+            <p id="strength-text" class="strength-text"></p>
           </div>
 
           <a href="#" class="forgot-password">Esqueceu a senha?</a>
@@ -52,4 +81,5 @@
       </p>
     </footer>
   </body>
+  <script type="module" src="./main.js"></script>
 </html>
