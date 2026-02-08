@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./assets/css/index.scss" />
+    <title>Entrar | HBO Max</title>
+  </head>
+  <body class="auth-page">
+    <nav class="menu">
+      <a href="./index.html" class="menu__logo">
+        <img
+          src="./assets/images/hbo-logo.svg"
+          alt="HBO Max"
+          class="menu__logo-image"
+        />
+      </a>
+    </nav>
+
+    <main class="main-login">
+      <section class="login-container">
+        <h2 class="title">Entrar</h2>
+        <p class="login-subtitle">Você tem uma conta da HBO Max?</p>
+
+        <form class="login-form">
+          <div class="form-group">
+            <input type="email" id="email" placeholder="E-mail" required />
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" placeholder="Senha" required />
+          </div>
+
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+
+          <button type="submit" class="button login-button">Entrar</button>
+        </form>
+
+        <div class="login-footer">
+          <p>Não tem uma conta?</p>
+          <a href="./index.html#subscription" class="footer__link"
+            >Assine Agora</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <p class="text--small footer__legal">
+        © 2026 WarnerMedia Direct Latin America, LLC. Todos os direitos
+        reservados.
+      </p>
+    </footer>
+  </body>
+</html>

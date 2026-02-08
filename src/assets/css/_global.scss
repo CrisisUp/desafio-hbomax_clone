@@ -1,0 +1,221 @@
+// 1. Variáveis e Breakpoints
+$primary-color: #020228;
+$secondary-color: #ff00e5;
+$tertiary-color: #b535f6;
+$text-color: #fff;
+$link-color: #9e86ff;
+$nav-bg: rgba(0, 0, 0, 0.3);
+
+// Breakpoints para responsividade
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// 2. Mixin de Media Query (A alma da responsividade)
+@mixin device($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+// NOVO: Adicione este para resolver o erro do print
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin image-grayscale-hover {
+  filter: grayscale(100%) opacity(0.7); // Fica cinza e levemente transparente
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+
+  &:hover {
+    filter: grayscale(0%) opacity(1); // Ganha cor e brilho total
+    transform: scale(1.1); // Dá um leve zoom
+  }
+}
+
+// NOVO: Mixin para os cards de planos
+@mixin plan-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  background: linear-gradient(0deg, transparent, #3b1e63); // Usando sua variável de card
+  border-radius: 8px;
+  transition: transform 0.3s ease, border 0.3s ease;
+  min-height: 600px;
+  width: 100%;
+  max-width: 400px;
+
+  &:hover {
+    transform: translateY(-10px);
+    border: 1px solid $secondary-color;
+  }
+
+  @include device($mobile) {
+    min-height: auto;
+    padding: 24px;
+  }
+}
+
+// 3. Reset e Tags Base
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Quicksand:wght@300;400;700&display=swap");
+
+* {
+  font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $primary-color;
+  color: $text-color;
+  overflow-x: hidden; // Evita scroll horizontal indesejado no mobile
+}
+
+// 4. Containers Responsivos
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+  text-align: center;
+
+  @include device($mobile) {
+    padding: 16px; // Menos respiro lateral em telas pequenas
+  }
+}
+
+// 5. Componentes Flexíveis
+.menu {
+  width: 100%;
+  padding: 12px 5%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $nav-bg;
+  z-index: 100;
+
+  &__checkbox {
+    display: none; // O input fica oculto, funciona apenas como switch lógico
+  }
+
+  &__button {
+    display: none; // Escondido no Desktop
+    cursor: pointer;
+    padding: 10px;
+    z-index: 101;
+
+    @include device($tablet) {
+      display: block; // Aparece apenas em tablets e celulares
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: $text-color;
+    position: relative;
+    transition: background 0.3s;
+
+    &::before, &::after {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: $text-color;
+      position: absolute;
+      transition: transform 0.3s, top 0.3s;
+    }
+    &::before { top: -8px; }
+    &::after { top: 8px; }
+  }
+
+  // Lógica de Exibição
+  &__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+    @include device($tablet) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 0; // "Pacote bloqueado" por padrão
+      overflow: hidden;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.95);
+      transition: height 0.4s ease-in-out;
+      padding: 0;
+    }
+  }
+
+  // A Mágica do CSS: Se o "switch" estiver ligado (checked), libera o acesso
+  &__checkbox:checked ~ .menu__list {
+    @include device($tablet) {
+      height: 250px; // Altura necessária para mostrar os itens
+      padding: 20px;
+    }
+  }
+
+  // Animação do ícone para "X" quando aberto
+  &__checkbox:checked ~ .menu__button .menu__icon {
+    background: transparent;
+    &::before { transform: rotate(45deg); top: 0; }
+    &::after { transform: rotate(-45deg); top: 0; }
+  }
+}
+
+.subscription__plans {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+
+  // No tablet ou mobile, os cards ficam um embaixo do outro
+  @include device($tablet) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// 6. Tipografia Responsiva
+h1, .title {
+  font-size: 3rem;
+  @include device($tablet) { font-size: 2.2rem; }
+  @include device($mobile) { font-size: 1.8rem; }
+}
+
+.button {
+  display: inline-block;
+  width: 100%; // Faz o botão ocupar o espaço do container
+  padding: 16px 40px;
+  border-radius: 12px; // Cantos arredondados como você pediu
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+
+  // O famoso gradiente da HBO Max
+  background: linear-gradient(45deg, #9b34ef 0%, #490cb0 100%);
+
+  &:hover {
+    transform: scale(1.02);
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px rgba(155, 52, 239, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

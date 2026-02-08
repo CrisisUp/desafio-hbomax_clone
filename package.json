@@ -1,0 +1,29 @@
+{
+  "name": "desafio-hbomax_clone",
+  "version": "1.0.0",
+  "description": "<img src=\"assets/images/readme-images/cover.png\">",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite src",
+    "build": "vite build src",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrisisUp/desafio-hbomax_clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CrisisUp/desafio-hbomax_clone/issues"
+  },
+  "homepage": "https://github.com/CrisisUp/desafio-hbomax_clone#readme",
+  "dependencies": {
+    "vite": "^7.3.1"
+  },
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}

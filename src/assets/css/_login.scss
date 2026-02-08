@@ -1,0 +1,83 @@
+// _login.scss
+
+.main-login {
+  @include flex-center;
+  min-height: 85vh;
+  padding: 40px 20px;
+
+  .login-container {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 3.5rem;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+
+    .login-subtitle {
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      color: $text-color;
+    }
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+
+  input {
+    width: 100%;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    &:focus {
+      border-color: $secondary-color;
+    }
+  }
+
+  .forgot-password {
+    text-align: right;
+    font-size: 0.85rem;
+    color: $link-color;
+    text-decoration: none;
+    margin-top: -5px;
+    
+    &:hover { text-decoration: underline; }
+  }
+
+  // O Botão agora usando o Mixin e ajustes extras
+  .login-button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    
+    // Gradiente HBO Max clássico
+    background: linear-gradient(45deg, #9b34ef 0%, #490cb0 100%);
+    
+    &:hover {
+      filter: brightness(1.2);
+      transform: scale(1.02);
+    }
+  }
+}
