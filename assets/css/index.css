@@ -90,7 +90,7 @@ main {
   font-weight: 300;
 }
 
-.title {
+.section__title {
   font-size: 2rem;
   font-weight: 500;
 }
@@ -197,45 +197,17 @@ main {
 
 .contents__image {
   width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
   object-position: center;
   transition: opacity 2s;
 }
 
-/* HBO Content */
+/* Content card hover — brand image via CSS custom property */
 
-.contents__card:nth-child(1):hover {
-  background-image: url("../images/hbo-hover_0.webp");
-}
-
-/* Max Originals Content */
-
-.contents__card:nth-child(2):hover {
-  background-image: url("../images/MAX-Hover.webp");
-}
-
-/* DC Content */
-
-.contents__card:nth-child(3):hover {
-  background-image: url("../images/DC-Hover.webp");
-}
-
-/* WB Content */
-
-.contents__card:nth-child(4):hover {
-  background-image: url("../images/WB-Hover.webp");
-}
-
-/* CN Content */
-
-.contents__card:nth-child(5):hover {
-  background-image: url("../images/CN-Hover.png");
-}
-
-/* Champions League Content */
-
-.contents__card:nth-child(6):hover {
-  background-image: url("../images/UCL-Hover.webp");
+.contents__card:hover {
+  background-image: var(--hover-img);
 }
 
 /* Media Queries */
@@ -289,6 +261,11 @@ main {
     grid-template-columns: repeat(6, 100%);
     grid-auto-flow: column;
     overflow: auto hidden;
+    scroll-snap-type: x mandatory;
+  }
+
+  .contents__card {
+    scroll-snap-align: start;
   }
 }
 

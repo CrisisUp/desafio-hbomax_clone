@@ -1,4 +1,4 @@
-@import url("global.css");
+@import url("./global.css");
 
 body {
   background-image: url("../images/background-movies-series.png");
@@ -6,18 +6,14 @@ body {
   height: 100vh;
 }
 
-.content {
+.auth-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Quicksand", cursive;
+  font-family: "Quicksand", sans-serif;
   width: 100%;
   height: 70%;
   padding: 24px;
-}
-
-.menu {
-  position: relative;
 }
 
 .login {

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Entre na sua conta HBO Max e aproveite as melhores histórias."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Quicksand:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/hbo-logo.svg" />
     <link rel="stylesheet" href="assets/css/signIn.css" />
     <title>Entrar | HBO Max</title>
   </head>
   <body>
-    <nav class="menu">
+    <nav class="menu menu--relative">
       <a href="index.html" class="menu__logo">
         <img
           src="assets/images/hbo-logo.svg"
@@ -23,16 +33,17 @@
         </a>
       </div>
     </nav>
-    <main class="content">
-      <form class="login container">
+    <main class="auth-content">
+      <form class="login container" action="#" method="post" aria-label="Formulário de login HBO Max">
         <h1 class="login__title">Entrar</h1>
-        <label class="login__label"> Você tem uma conta da HBO Max? </label>
+        <label class="login__label" for="email"> Você tem uma conta da HBO Max? </label>
         <input
           class="login__field"
           type="email"
           name="email"
           id="email"
           placeholder="Endereço de e-mail"
+          required
         />
         <input
           class="login__field"
@@ -41,11 +52,12 @@
           id="password"
           placeholder="Senha"
           minlength="8"
+          required
         />
 
         <div class="login__actions">
           <button type="submit" class="button button--gradient">Entrar</button>
-          <a href="#" class="login__link"> Esqueceu a senha? </a>
+          <a href="javascript:void(0)" class="login__link"> Esqueceu a senha? </a>
         </div>
       </form>
     </main>
@@ -70,29 +82,38 @@
         © 2022 WarnerMedia Direct Latin America, LLC. Todos os direitos
         reservados. HBO Max é usado sob licença.
       </p>
-      <div class="footer__social">
-        <a
-          href="https://www.facebook.com/HBOMaxBr/"
-          class="footer__social-link"
-        >
-          <img src="assets/images/fb_0.png" alt="Facebook" />
-        </a>
-        <a href="https://twitter.com/HBOMaxBR" class="footer__social-link">
-          <img src="assets/images/twitter_0.png" alt="Twitter" />
-        </a>
-        <a
-          href="https://www.instagram.com/hbomaxbr/"
-          class="footer__social-link"
-        >
-          <img src="assets/images/instagram_0.png" alt="Instagram" />
-        </a>
-        <a
-          href="https://www.youtube.com/c/hbomaxbr"
-          class="footer__social-link"
-        >
-          <img src="assets/images/youtube_0.png" alt="Youtube" />
-        </a>
-      </div>
+      <nav aria-label="Redes sociais">
+        <div class="footer__social">
+          <a
+            href="https://www.facebook.com/HBOMaxBr/"
+            class="footer__social-link"
+            aria-label="Facebook HBO Max"
+          >
+            <img src="assets/images/fb_0.png" alt="" />
+          </a>
+          <a
+            href="https://twitter.com/HBOMaxBR"
+            class="footer__social-link"
+            aria-label="Twitter HBO Max"
+          >
+            <img src="assets/images/twitter_0.png" alt="" />
+          </a>
+          <a
+            href="https://www.instagram.com/hbomaxbr/"
+            class="footer__social-link"
+            aria-label="Instagram HBO Max"
+          >
+            <img src="assets/images/instagram_0.png" alt="" />
+          </a>
+          <a
+            href="https://www.youtube.com/c/hbomaxbr"
+            class="footer__social-link"
+            aria-label="YouTube HBO Max"
+          >
+            <img src="assets/images/youtube_0.png" alt="" />
+          </a>
+        </div>
+      </nav>
     </footer>
   </body>
 </html>

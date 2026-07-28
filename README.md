@@ -49,6 +49,11 @@ Recursos CSS presentes no projeto:
 - Transformações 2D e 3D
 - Transições e animações
 - Tratamento de campos inválidos no formulário
+- Seletor parental `:has()` para efeitos hover entre irmãos
+- Animação gradiente com `background-size` e `@keyframes`
+- Scroll snap para carrossel horizontal em mobile
+- Scrollbar customizada (WebKit + Firefox)
+- Foco visível (`:focus-visible`) para navegação por teclado
 
 <h2 id="challenges">🏆 Desafio</h2>
 
@@ -88,7 +93,6 @@ Caso deseje, adicione as variáveis CSS abaixo, que contém todas as cores e gra
     --form-field-placeholder: rgba(255, 255, 255, 0.7);
     --form-field-error: rgb(255, 76, 76);
 
-    scroll-behavior: smooth;
   }
 ```
 
@@ -120,9 +124,15 @@ As fontes utilizadas no projeto foram:
 - [Raleway](https://fonts.google.com/specimen/Raleway)
 - [Quicksand](https://fonts.google.com/specimen/Quicksand?query=quicksand)
   
-```css
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap");
+As fontes são carregadas via `<link>` com `preconnect` no `<head>` para melhor performance:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Quicksand:wght@300;400;700&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 *Para melhor orientação, assista ao vídeo de instruções do desafio, que está disponibilizado no Módulo 3 da Trilha de CSS.*
