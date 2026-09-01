@@ -7,6 +7,10 @@
       name="description"
       content="Clone do site HBO Max — Assista as melhores histórias da HBO, DC, Warner Bros, Cartoon Network e Max Originals. Planos Mobile e Multitelas disponíveis."
     />
+    <meta name="theme-color" content="#020228" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,94 +18,105 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="assets/images/hbo-logo.svg" />
-    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/landing.css" />
     <title>HBO Max</title>
   </head>
   <body>
-    <nav class="menu">
-      <a href="index.html" class="menu__logo">
+    <!-- MAINTENANCE: Keep in sync with signIn.html navbar -->
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+      <a href="index.html" class="navbar__logo" aria-current="page">
         <img
           src="assets/images/hbo-logo.svg"
           alt="Logotipo HBOMax com o nome da marca"
-          class="menu__logo-image"
+          class="navbar__logo-image"
         />
       </a>
-      <div>
-        <a href="signIn.html" class="menu__item">Entrar</a>
-        <a href="#subscription" class="menu__item menu__item--button button">
-          Assine Agora
-        </a>
-      </div>
+      <button
+        class="navbar__toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navbar-actions"
+      >
+        <span class="navbar__toggle-icon"></span>
+      </button>
+      <ul class="navbar__actions" id="navbar-actions" role="menubar">
+        <li role="none"><a href="signIn.html" class="navbar__link" role="menuitem">Entrar</a></li>
+        <li role="none">
+          <a href="#subscription" class="navbar__link navbar__link--button button" role="menuitem">
+            Assine Agora
+          </a>
+        </li>
+      </ul>
     </nav>
-    <header class="header">
-      <div class="header__content">
-        <div class="header__channels">
-          <img class="header__channel" src="assets/images/hbo.png" alt="HBO" />
-          <img class="header__channel" src="assets/images/dc.png" alt="DC" />
+    <header class="hero">
+      <div class="hero__content">
+        <div class="hero__channels">
+          <img class="hero__channel" src="assets/images/hbo.png" alt="HBO" />
+          <img class="hero__channel" src="assets/images/dc.png" alt="DC" />
           <img
-            class="header__channel"
+            class="hero__channel"
             src="assets/images/wb.png"
             alt="Warner Bross"
           />
           <img
-            class="header__channel"
+            class="hero__channel"
             src="assets/images/cartoon-network_neutral.png"
             alt="Cartoon Network"
           />
           <img
-            class="header__channel"
+            class="hero__channel"
             src="assets/images/max_originals.png"
             alt="Max Originals"
           />
         </div>
-        <h1 class="header__title">
-          <span class="header__title--light">Curta as melhores histórias</span>
+        <h1 class="hero__title">
+          <span class="hero__title--light">Curta as melhores histórias</span>
           Para todo mundo
         </h1>
-        <div class="divider"></div>
-        <div class="offer">
+        <div class="hero__divider"></div>
+        <div class="hero__offer">
           <p>Assinaturas a partir de</p>
-          <p class="offer__price">
-            R$14,15 <span class="offer__price--small">/mês*</span>
+          <p class="hero__offer-price">
+            R$14,15 <span class="hero__offer-price--small">/mês*</span>
           </p>
         </div>
-        <a href="#subscription" class="button button--gradient header__button">
+        <a href="#subscription" class="button button--gradient hero__cta">
           Assine agora
         </a>
-        <p class="text--small">
+        <p class="helper-text--sm hero__offer .helper-text--sm">
           *aplicável ao plano anual com o pagamento antecipado.
         </p>
       </div>
     </header>
 
     <main>
-      <section id="subscription" class="subscription">
+      <section id="subscription" class="plans">
         <div class="container">
-          <h2 class="section__title">
+          <h2 class="section-title">
             Conheça nossos planos e economize na assinatura trimestral ou anual
             com o pagamento antecipado.
           </h2>
-          <div class="subscription__plans">
-            <div class="subscription__card">
+          <div class="plans__grid">
+            <div class="plans__card">
               <div>
-                <div class="subscription__plan">
+                <div class="plans__header">
                   <h3>Mobile</h3>
-                  <p class="subscription__price">
-                    R$ 19,90 <span class="text--small">/mês</span>
+                  <p class="plans__price">
+                    R$ 19,90 <span class="helper-text--sm">/mês</span>
                   </p>
                 </div>
 
-                <ul class="subscription__goals" role="list">
-                  <li class="subscription__description">
+                <ul class="plans__features" role="list">
+                  <li class="plans__feature">
                     Aproveite em smartphones e tablets, onde quiser.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Assista em 1 tela por vez.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Tenha conteúdo em resolução adaptada para cada dispositivo.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Baixe suas séries e filmes favoritos, assista onde e quando
                     quiser.
                   </li>
@@ -112,33 +127,34 @@
               </button>
             </div>
 
-            <div class="subscription__card">
+            <div class="plans__card" style="position: relative;">
+              <span class="plans__badge">Mais Popular</span>
               <div>
-                <div class="subscription__plan">
+                <div class="plans__header">
                   <h3>Multitelas</h3>
-                  <p class="subscription__price">
-                    R$ 27,90 <span class="text--small">/mês</span>
+                  <p class="plans__price">
+                    R$ 27,90 <span class="helper-text--sm">/mês</span>
                   </p>
                 </div>
 
-                <ul role="list">
-                  <li class="subscription__description">
+                <ul class="plans__features" role="list">
+                  <li class="plans__feature">
                     Aproveite em todos os seus dispositivos.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Chromecast e Airplay disponíveis.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Assista em até 3 telas ao mesmo tempo.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Tenha conteúdo em alta definição, com qualidade 4K.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Baixe suas séries e filmes favoritos, assista onde e quando
                     quiser.
                   </li>
-                  <li class="subscription__description">
+                  <li class="plans__feature">
                     Crie até 5 perfis diferentes.
                   </li>
                 </ul>
@@ -151,82 +167,118 @@
         </div>
       </section>
 
-      <section id="contents" class="contents container">
-        <h2 class="section__title">Descubra novos universos</h2>
-        <div class="contents__container">
+      <section id="contents" class="gallery container">
+        <h2 class="section-title">Descubra novos universos</h2>
+        <div class="gallery__grid">
           <div
-            class="contents__card"
+            class="gallery__card"
             style="--hover-img: url('../images/hbo-hover_0.webp')"
           >
             <img
-              class="contents__image"
+              class="gallery__image"
               loading="lazy"
               src="assets/images/hbo-default_0.webp"
+              srcset="
+                assets/images/responsive/hbo-default_0-300w.webp 300w,
+                assets/images/responsive/hbo-default_0-600w.webp 600w,
+                assets/images/responsive/hbo-default_0-900w.webp 900w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1200px) 33vw, 300px"
               alt="HBO"
               width="300"
               height="450"
             />
           </div>
           <div
-            class="contents__card"
+            class="gallery__card"
             style="--hover-img: url('../images/MAX-Hover.webp')"
           >
             <img
-              class="contents__image"
+              class="gallery__image"
               loading="lazy"
               src="assets/images/MAX-Default.webp"
+              srcset="
+                assets/images/responsive/MAX-Default-300w.webp 300w,
+                assets/images/responsive/MAX-Default-600w.webp 600w,
+                assets/images/responsive/MAX-Default-900w.webp 900w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1200px) 33vw, 300px"
               alt="Max Originals"
               width="300"
               height="450"
             />
           </div>
           <div
-            class="contents__card"
+            class="gallery__card"
             style="--hover-img: url('../images/DC-Hover.webp')"
           >
             <img
-              class="contents__image"
+              class="gallery__image"
               loading="lazy"
               src="assets/images/DC_Default.webp"
+              srcset="
+                assets/images/responsive/DC_Default-300w.webp 300w,
+                assets/images/responsive/DC_Default-600w.webp 600w,
+                assets/images/responsive/DC_Default-900w.webp 900w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1200px) 33vw, 300px"
               alt="DC"
               width="300"
               height="450"
             />
           </div>
           <div
-            class="contents__card"
+            class="gallery__card"
             style="--hover-img: url('../images/WB-Hover.webp')"
           >
             <img
-              class="contents__image"
+              class="gallery__image"
               loading="lazy"
               src="assets/images/WB-Default.webp"
+              srcset="
+                assets/images/responsive/WB-Default-300w.webp 300w,
+                assets/images/responsive/WB-Default-600w.webp 600w,
+                assets/images/responsive/WB-Default-900w.webp 900w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1200px) 33vw, 300px"
               alt="Warner Bross"
               width="300"
               height="450"
             />
           </div>
           <div
-            class="contents__card"
+            class="gallery__card"
             style="--hover-img: url('../images/CN-Hover.png')"
           >
             <img
-              class="contents__image"
+              class="gallery__image"
               loading="lazy"
               src="assets/images/CN-Default.webp"
+              srcset="
+                assets/images/responsive/CN-Default-300w.webp 300w,
+                assets/images/responsive/CN-Default-600w.webp 600w,
+                assets/images/responsive/CN-Default-900w.webp 900w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1200px) 33vw, 300px"
               alt="Cartoon Network"
               width="300"
               height="450"
             />
           </div>
           <div
-            class="contents__card"
+            class="gallery__card"
             style="--hover-img: url('../images/UCL-Hover.webp')"
           >
             <img
-              class="contents__image"
+              class="gallery__image"
               loading="lazy"
               src="assets/images/UCL-Default.webp"
+              srcset="
+                assets/images/responsive/UCL-Default-300w.webp 300w,
+                assets/images/responsive/UCL-Default-600w.webp 600w,
+                assets/images/responsive/UCL-Default-900w.webp 900w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 800px) 50vw, (max-width: 1200px) 33vw, 300px"
               alt="UEFA Champions League"
               width="300"
               height="450"
@@ -236,8 +288,9 @@
       </section>
     </main>
 
+    <!-- MAINTENANCE: Keep in sync with signIn.html footer -->
     <footer class="footer container">
-      <div>
+      <div class="footer__links" role="list" aria-label="Links do rodapé">
         <a class="footer__link" href="https://www.hbomax.com/br/pt/sitemap">
           Agora na HBO Max
         </a>
@@ -247,12 +300,10 @@
         <a class="footer__link" href="https://www.hbomax.com/br/pt/feature">
           Filme em destaque
         </a>
-        <a class="footer__link" href="https://www.hbomax.com/br/pt/series"
-          >Séries</a
-        >
+        <a class="footer__link" href="https://www.hbomax.com/br/pt/series">Séries</a>
         <a class="footer__link" href="https://help.hbomax.com/br">Ajuda</a>
       </div>
-      <p class="text--small footer__legal">
+      <p class="helper-text--sm footer__legal">
         © 2022 WarnerMedia Direct Latin America, LLC. Todos os direitos
         reservados. HBO Max é usado sob licença.
       </p>
@@ -289,5 +340,16 @@
         </div>
       </nav>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Voltar ao topo">
+      <span class="back-to-top__arrow"></span>
+    </button>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scroll-indicator"></div>
+
+    <script src="assets/js/validation.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>

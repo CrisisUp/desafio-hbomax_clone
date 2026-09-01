@@ -1,3 +1,36 @@
+# Build dependencies
 node_modules/
-package-lock.json
-package.json
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp files
+tmp/
+temp/
+
+# Sensitive files (nunca committar)
+*.key
+*.pem
+*.p12
+credentials.json
+secrets.json

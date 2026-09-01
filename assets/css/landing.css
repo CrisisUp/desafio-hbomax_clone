@@ -1,0 +1,301 @@
+@import url("./global.css");
+
+/* ==========================================================================
+   Landing Page Styles
+   ========================================================================== */
+
+/* ── Main Background ────────────────────────────────────────────────────── */
+
+main {
+  background: url("../images/background-movies-series.png") no-repeat;
+  background-size: cover;
+}
+
+/* ── Hero Section ───────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  margin-top: var(--space-25);
+  padding: var(--space-25) 0 var(--space-32);
+  background: linear-gradient(-45deg, #56125b, #0f0f10, #271e6e);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  width: 100%;
+  height: var(--space-32);
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, var(--primary-color), transparent);
+}
+
+.hero__content {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+  padding: 0 var(--space-10);
+}
+
+.hero__channels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+.hero__channel {
+  object-fit: contain;
+}
+
+.hero__title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: var(--font-size-4xl);
+}
+
+.hero__title--light {
+  display: block;
+  font-weight: lighter;
+  font-size: var(--font-size-2xl);
+}
+
+.hero__cta {
+  animation: wiggle 2.2s linear infinite;
+}
+
+/* ── Hero Divider ───────────────────────────────────────────────────────── */
+
+.hero__divider {
+  width: 70%;
+  max-width: 700px;
+  height: 5px;
+  background: var(--divider-bg-color);
+}
+
+/* ── Hero Offer ─────────────────────────────────────────────────────────── */
+
+.hero__offer {
+  text-align: center;
+  font-size: var(--font-size-lg);
+}
+
+.hero__offer .helper-text--sm {
+  max-width: 300px;
+  text-align: center;
+}
+
+.hero__offer-price {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: bold;
+}
+
+.hero__offer-price--small {
+  font-size: var(--font-size-base);
+  font-weight: 300;
+}
+
+/* ── Section Title (shared utility) ─────────────────────────────────────── */
+
+.section-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 500;
+}
+
+/* ── Plans Section ──────────────────────────────────────────────────────── */
+
+.plans {
+  background: url("../images/background-movies-series.png") no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.plans__grid {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--space-20);
+  margin: var(--space-10) 0;
+  perspective: 2000px;
+  perspective-origin: top;
+}
+
+.plans__card {
+  background: var(--card-bg-color);
+  padding: var(--space-10) var(--space-14);
+  border-radius: var(--radius-sm);
+  display: flex;
+  min-height: 600px;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-slow) ease-in-out;
+}
+
+.plans__grid:has(.plans__card:nth-child(1):hover)
+  .plans__card:nth-child(2) {
+  transform: rotateY(-45deg);
+}
+
+.plans__grid:has(.plans__card:nth-child(2):hover)
+  .plans__card:nth-child(1) {
+  transform: rotateY(45deg);
+}
+
+.plans__feature {
+  text-align: left;
+  list-style: none;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-4);
+}
+
+.plans__price {
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-primary);
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.plans__price .helper-text--sm {
+  color: var(--text-color);
+}
+
+.plans__feature::marker {
+  content: "+";
+  font-size: var(--font-size-2xl);
+  margin: 0 var(--space-2) 0 0;
+}
+
+.plans__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Gallery Section ────────────────────────────────────────────────────── */
+
+.gallery {
+  margin: var(--space-25) auto;
+}
+
+.gallery__grid {
+  margin-top: var(--space-10);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-10);
+}
+
+.gallery__card {
+  border-radius: var(--radius-md);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid transparent;
+  transition: transform var(--transition-medium), background var(--transition-medium), border var(--transition-slow);
+}
+
+/* Each .gallery__card sets --hover-img via inline style.
+   This is the standard CSS Custom Properties pattern for
+   per-element variant data in static HTML. */
+.gallery__card:hover {
+  transform: scale(1.05);
+  border: 2px solid var(--tertiary-color);
+  background-image: var(--hover-img);
+}
+
+.gallery__card:hover .gallery__image {
+  opacity: 0;
+}
+
+.gallery__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity var(--transition-slow);
+}
+
+/* ── Landing Media Queries ──────────────────────────────────────────────── */
+
+@media screen and (max-width: 1200px) {
+  .plans__grid {
+    gap: var(--space-10);
+  }
+
+  .gallery__grid {
+    gap: var(--space-8);
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .plans__grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plans__card {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    margin-top: var(--space-32);
+  }
+
+  section {
+    scroll-margin-top: var(--space-32);
+  }
+
+  .plans__price {
+    font-size: var(--font-size-xl);
+  }
+
+  .plans__feature {
+    font-size: var(--font-size-base);
+  }
+
+  .plans__header {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .plans__card {
+    padding: var(--space-10);
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(6, 100%);
+    grid-auto-flow: column;
+    overflow: auto hidden;
+    scroll-snap-type: x mandatory;
+  }
+
+  .gallery__card {
+    scroll-snap-align: start;
+  }
+}
+
+@media (pointer: coarse) {
+  .gallery__card:hover {
+    transform: none;
+  }
+
+  .plans__grid:has(.plans__card:nth-child(1):hover)
+    .plans__card:nth-child(2),
+  .plans__grid:has(.plans__card:nth-child(2):hover)
+    .plans__card:nth-child(1) {
+    transform: none;
+  }
+}

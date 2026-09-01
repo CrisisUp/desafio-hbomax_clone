@@ -1,0 +1,19 @@
+{
+  "name": "HBO Max Clone",
+  "short_name": "HBO Max",
+  "description": "Clone do site HBO Max — Assista as melhores histórias da HBO, DC, Warner Bros, Cartoon Network e Max Originals.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#020228",
+  "theme_color": "#020228",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/hbo-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["entertainment", "video"]
+}

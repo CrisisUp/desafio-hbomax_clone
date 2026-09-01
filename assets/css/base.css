@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Base Styles — Reset, Typography, Focus, Scrollbar (Firefox)
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: var(--font-primary);
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  scrollbar-width: thin;
+  scrollbar-color: var(--tertiary-color) transparent;
+}
+
+p {
+  font-family: var(--font-secondary);
+}
+
+section {
+  scroll-margin-top: var(--space-20);
+}
+
+/* Focus indicator for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}

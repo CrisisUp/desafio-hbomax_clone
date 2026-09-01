@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acesso Negado | HBO Max</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Raleway", sans-serif;
+        background: linear-gradient(-45deg, #020228, #0f0f10, #271e6e);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .error-container {
+        max-width: 600px;
+      }
+
+      .error-code {
+        font-size: 8rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ff00e5, #b535f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+
+      .error-title {
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+
+      .error-message {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 32px;
+        line-height: 1.6;
+      }
+
+      .error-button {
+        display: inline-block;
+        padding: 16px 40px;
+        background: linear-gradient(45deg, #9b34ef 0%, #490cb0 20%, transparent 50%);
+        background-size: 250%;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 500px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .error-button:hover {
+        background-color: transparent;
+        outline: 2px solid #ff00e5;
+        transform: scale(1.05);
+      }
+
+      .error-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="error-container">
+      <div class="error-icon">🔒</div>
+      <div class="error-code">403</div>
+      <h1 class="error-title">Acesso Negado</h1>
+      <p class="error-message">
+        Você não tem permissão para acessar este recurso.
+        Se você acha que isso é um erro, entre em contato com o administrador.
+      </p>
+      <a href="/" class="error-button">Voltar ao Início</a>
+    </div>
+  </body>
+</html>

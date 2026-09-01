@@ -1,0 +1,269 @@
+/* ==========================================================================
+   UX Improvements — Toggle Password, Badge Popular, Back to Top
+   ========================================================================== */
+
+/* ── 1. Toggle Password Visibility ──────────────────────────────────────── */
+
+.password-field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle {
+  position: absolute;
+  right: var(--space-4);
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: var(--space-2);
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  opacity: 1;
+}
+
+.password-toggle__icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+/* Olho aberto */
+.password-toggle__icon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.password-toggle__icon::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estado oculto (riscado) */
+.password-toggle[data-visible="false"] .password-toggle__icon::before {
+  border-bottom-color: transparent;
+}
+
+.password-toggle[data-visible="false"] .password-toggle__icon::after {
+  display: none;
+}
+
+/* Linha de riscado */
+.password-toggle[data-visible="false"] .password-toggle__icon {
+  position: relative;
+}
+
+.password-toggle[data-visible="false"] .password-toggle__icon::before {
+  border-color: currentColor;
+}
+
+.password-toggle[data-visible="false"] .password-toggle__icon::after {
+  display: none;
+}
+
+/* ── 2. Popular Badge ───────────────────────────────────────────────────── */
+
+.plans__badge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: linear-gradient(135deg, var(--secondary-color), var(--tertiary-color));
+  color: var(--text-color);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 0, 229, 0.4);
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 0, 229, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 0, 229, 0.6);
+  }
+}
+
+/* ── 3. Back to Top Button ──────────────────────────────────────────────── */
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  width: 48px;
+  height: 48px;
+  background: var(--tertiary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}
+
+.back-to-top__arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid currentColor;
+  transform: rotate(180deg);
+}
+
+/* ── 4. Tooltip ─────────────────────────────────────────────────────────── */
+
+.tooltip-trigger {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dashed currentColor;
+}
+
+.tooltip-trigger::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+  border: 1px solid var(--tertiary-color);
+  z-index: 100;
+}
+
+.tooltip-trigger:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ── 5. Microinteractions ───────────────────────────────────────────────── */
+
+/* Card press effect */
+.plans__card:active,
+.gallery__card:active {
+  transform: scale(0.98);
+}
+
+/* Link underline animation */
+.footer__link {
+  position: relative;
+}
+
+.footer__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width var(--transition-fast);
+}
+
+.footer__link:hover::after {
+  width: 100%;
+}
+
+/* ── 6. Smooth Scroll Indicator ─────────────────────────────────────────── */
+
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--tertiary-color));
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
+/* ── 7. Loading Overlay ─────────────────────────────────────────────────── */
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-medium), visibility var(--transition-medium);
+}
+
+.loading-overlay--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--secondary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

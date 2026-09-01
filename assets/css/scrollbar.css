@@ -1,0 +1,16 @@
+/* ==========================================================================
+   Custom Scrollbar — WebKit (Chrome, Edge, Safari)
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tertiary-color);
+  border-radius: var(--space-5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}

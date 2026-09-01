@@ -1,0 +1,23 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "doctype-style": ["error", { "style": "lowercase" }],
+    "no-trailing-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "indent": ["error", 2],
+    "attr-duplicates": "error",
+    "attr-no-unknown": "error",
+    "attr-value-not-empty": "error",
+    "attribute-quotes": ["error", "double"],
+    "element-no-unknown": "error",
+    "no-raw-text": "off",
+    "no-redundant-role": "error",
+    "no-unused-class": "warn",
+    "heading-level": "off",
+    "meta-description": "error",
+    "meta-viewport": "error",
+    "title-order": "off",
+    "valid-lang": "error"
+  },
+  "ignoreFiles": ["node_modules/**"]
+}

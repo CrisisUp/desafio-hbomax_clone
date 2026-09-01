@@ -1,0 +1,33 @@
+{
+  "name": "hbomax-clone",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Clone do site HBO Max com seguranca",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "production": "node server-production.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:security": "ffuf -u http://localhost:3000/FUZZ -w wordlist.txt -mc 200,301,302,403",
+    "lint:css": "stylelint 'assets/css/**/*.css'",
+    "lint:css:fix": "stylelint 'assets/css/**/*.css' --fix",
+    "validate:html": "html-validate index.html signIn.html"
+  },
+  "dependencies": {
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "axe-core": "^4.13.0",
+    "html-validate": "^11.11.0",
+    "jsdom": "^30.0.1",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard": "^40.0.0",
+    "vitest": "^4.1.11"
+  }
+}

@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Navbar Component
+   ========================================================================== */
+
+.navbar {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav-bg-color);
+  z-index: 100;
+}
+
+.navbar--relative {
+  position: relative;
+}
+
+.navbar__logo {
+  max-width: var(--logo-max-width);
+}
+
+.navbar__logo-image {
+  width: 100%;
+}
+
+.navbar__actions {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navbar__link {
+  padding: var(--space-3) 0;
+  min-height: var(--touch-target);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: var(--font-size-xs);
+  color: var(--text-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.navbar__link--button {
+  padding: var(--space-2) var(--space-6);
+  transition: background var(--transition-slow), color var(--transition-slow);
+}
+
+.navbar__link--button:hover {
+  background-color: var(--btn-link-bg-color);
+  color: var(--btn-link-color);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────────── */
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: var(--space-8) var(--space-6);
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .navbar__logo {
+    max-width: var(--logo-max-width-mobile);
+  }
+
+  .navbar__link--button {
+    margin: 0;
+  }
+}

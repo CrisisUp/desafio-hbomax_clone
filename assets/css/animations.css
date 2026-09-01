@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Keyframe Animations
+   ========================================================================== */
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  10% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(-15deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  35% {
+    transform: rotate(-10deg);
+  }
+  40%,
+  100% {
+    transform: rotate(0);
+  }
+}
+
+/* ── Hero Entrance Animation ────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__channels,
+.hero__title,
+.hero__divider,
+.hero__offer,
+.hero__cta,
+.hero__offer .helper-text--sm {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero__channels { animation-delay: 0.1s; }
+.hero__title { animation-delay: 0.2s; }
+.hero__divider { animation-delay: 0.3s; }
+.hero__offer { animation-delay: 0.4s; }
+.hero__cta { animation-delay: 0.5s; }
+.hero__offer .helper-text--sm { animation-delay: 0.6s; }

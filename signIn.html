@@ -7,6 +7,10 @@
       name="description"
       content="Entre na sua conta HBO Max e aproveite as melhores histórias."
     />
+    <meta name="theme-color" content="#020228" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,56 +18,85 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="assets/images/hbo-logo.svg" />
-    <link rel="stylesheet" href="assets/css/signIn.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
     <title>Entrar | HBO Max</title>
   </head>
   <body>
-    <nav class="menu menu--relative">
-      <a href="index.html" class="menu__logo">
+    <!-- MAINTENANCE: Keep in sync with index.html navbar -->
+    <nav class="navbar navbar--relative" role="navigation" aria-label="Menu principal">
+      <a href="index.html" class="navbar__logo">
         <img
           src="assets/images/hbo-logo.svg"
           alt="Logotipo HBOMax com o nome da marca"
-          class="menu__logo-image"
+          class="navbar__logo-image"
         />
       </a>
-      <div>
-        <a href="signIn.html" class="menu__item">Entrar</a>
-        <a href="#subscription" class="menu__item menu__item--button button">
-          Assine Agora
-        </a>
-      </div>
+      <button
+        class="navbar__toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navbar-actions"
+      >
+        <span class="navbar__toggle-icon"></span>
+      </button>
+      <ul class="navbar__actions" id="navbar-actions" role="menubar">
+        <li role="none"><a href="signIn.html" class="navbar__link" role="menuitem" aria-current="page">Entrar</a></li>
+        <li role="none">
+          <a href="#subscription" class="navbar__link navbar__link--button button" role="menuitem">
+            Assine Agora
+          </a>
+        </li>
+      </ul>
     </nav>
-    <main class="auth-content">
-      <form class="login container" action="#" method="post" aria-label="Formulário de login HBO Max">
-        <h1 class="login__title">Entrar</h1>
-        <label class="login__label" for="email"> Você tem uma conta da HBO Max? </label>
+    <main class="login-layout">
+      <form class="login-form container" action="#" method="post" aria-label="Formulário de login HBO Max">
+        <h1 class="login-form__title">Entrar</h1>
+        <label class="login-form__label" for="email">Endereço de e-mail</label>
         <input
-          class="login__field"
+          class="login-form__field"
           type="email"
           name="email"
           id="email"
           placeholder="Endereço de e-mail"
           required
         />
-        <input
-          class="login__field"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Senha"
-          minlength="8"
-          required
-        />
+        <label class="login-form__label" for="password">Senha</label>
+        <div class="password-field-wrapper">
+          <input
+            class="login-form__field"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+            minlength="8"
+            required
+            aria-describedby="password-strength-text"
+            style="width: 100%; padding-right: 48px;"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            aria-label="Mostrar senha"
+            data-visible="false"
+          >
+            <span class="password-toggle__icon"></span>
+          </button>
+        </div>
+        <div class="password-strength" id="password-strength" data-strength="">
+          <div class="password-strength__bar"></div>
+          <span class="password-strength__text" id="password-strength-text"></span>
+        </div>
 
-        <div class="login__actions">
+        <div class="login-form__actions">
           <button type="submit" class="button button--gradient">Entrar</button>
-          <a href="javascript:void(0)" class="login__link"> Esqueceu a senha? </a>
+          <a href="#!" class="login-form__link"> Esqueceu a senha? </a>
         </div>
       </form>
     </main>
 
+    <!-- MAINTENANCE: Keep in sync with index.html footer -->
     <footer class="footer container">
-      <div>
+      <div class="footer__links" role="list" aria-label="Links do rodapé">
         <a class="footer__link" href="https://www.hbomax.com/br/pt/sitemap">
           Agora na HBO Max
         </a>
@@ -73,12 +106,10 @@
         <a class="footer__link" href="https://www.hbomax.com/br/pt/feature">
           Filme em destaque
         </a>
-        <a class="footer__link" href="https://www.hbomax.com/br/pt/series"
-          >Séries</a
-        >
+        <a class="footer__link" href="https://www.hbomax.com/br/pt/series">Séries</a>
         <a class="footer__link" href="https://help.hbomax.com/br">Ajuda</a>
       </div>
-      <p class="text--small footer__legal">
+      <p class="helper-text--sm footer__legal">
         © 2022 WarnerMedia Direct Latin America, LLC. Todos os direitos
         reservados. HBO Max é usado sob licença.
       </p>
@@ -115,5 +146,16 @@
         </div>
       </nav>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Voltar ao topo">
+      <span class="back-to-top__arrow"></span>
+    </button>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scroll-indicator"></div>
+
+    <script src="assets/js/validation.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
